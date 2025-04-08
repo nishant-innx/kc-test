@@ -3,7 +3,6 @@
     <h3>Create New Restaurant Menu</h3>
   
     <form (ngSubmit)="onsubmit()">
-      <!-- Restaurant ID -->
       <div>
         <label for="restaurantId">Restaurant ID:</label>
         <input 
@@ -14,7 +13,6 @@
           required />
       </div>
   
-      <!-- Active Checkbox -->
       <div>
         <label for="active">Active:</label>
         <input 
@@ -26,7 +24,6 @@
   
       <h4>Menu Items:</h4>
   
-      <!-- Menu Item Fields (hardcoded for simplicity) -->
       <div *ngFor="let item of newMenu.menuItems; let i = index">
         <div>
           <h5>Menu Item {{ i + 1 }}</h5>
@@ -60,12 +57,10 @@
         </div>
       </div>
   
-      <!-- Button to add more menu items -->
       <button type="button" (click)="addMenuItem()">Add Menu Item</button>
   
       <br /><br />
   
-      <!-- Submit Button -->
       <button type="submit">Submit</button>
     </form>
   </div>
