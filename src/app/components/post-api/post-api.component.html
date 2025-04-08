@@ -1,0 +1,73 @@
+<p>post-api works!</p>
+<div>
+    <h3>Create New Restaurant Menu</h3>
+  
+    <form (ngSubmit)="onsubmit()">
+      <!-- Restaurant ID -->
+      <div>
+        <label for="restaurantId">Restaurant ID:</label>
+        <input 
+          type="number" 
+          id="restaurantId" 
+          [(ngModel)]="newMenu.restaurantId" 
+          name="restaurantId" 
+          required />
+      </div>
+  
+      <!-- Active Checkbox -->
+      <div>
+        <label for="active">Active:</label>
+        <input 
+          type="checkbox" 
+          id="active" 
+          [(ngModel)]="newMenu.active" 
+          name="active" />
+      </div>
+  
+      <h4>Menu Items:</h4>
+  
+      <!-- Menu Item Fields (hardcoded for simplicity) -->
+      <div *ngFor="let item of newMenu.menuItems; let i = index">
+        <div>
+          <h5>Menu Item {{ i + 1 }}</h5>
+  
+          <label for="itemName{{i}}">Item Name:</label>
+          <input
+            type="text"
+            id="itemName{{i}}"
+            [(ngModel)]="item.name"
+            name="itemName{{i}}"
+            required />
+  
+          <label for="itemDescription{{i}}">Description:</label>
+          <textarea
+            id="itemDescription{{i}}"
+            [(ngModel)]="item.description"
+            name="itemDescription{{i}}"
+            required></textarea>
+  
+          <label for="itemPrice{{i}}">Price:</label>
+          <input
+            type="number"
+            id="itemPrice{{i}}"
+            [(ngModel)]="item.price"
+            name="itemPrice{{i}}"
+            required
+            min="0"
+            step="0.01" />
+  
+          <button type="button" (click)="removeMenuItem(i)">Remove Item</button>
+        </div>
+      </div>
+  
+      <!-- Button to add more menu items -->
+      <button type="button" (click)="addMenuItem()">Add Menu Item</button>
+  
+      <br /><br />
+  
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  
+  
